@@ -10,12 +10,12 @@ public class BallController : MonoBehaviour
 {
     private float visiblePosZ = -6.5f;
     private GameObject gameoverText;
-    GameObject director;
+    private int score = 0;
     // Start is called before the first frame update
     void Start()
     {
         this.gameoverText = GameObject.Find("GameOverText");
-        this.director = GameObject.Find("GameDirector");
+        this.scoreText = GameObject.Find("ScoreText");
     }
     // Update is called once per frame
     void Update()
@@ -27,24 +27,31 @@ public class BallController : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log()
-         
+
+
         if (other.gameObject.tag == "SmallStarTag")
         {
-            this.director.GetComponent<GameDirector>().GetSmallStar();
-   
+            this.score += 10;
+            this.scoreText.GetComponent<Text>().text = "Score" + this.score;
+
         }
         if (other.gameObject.tag == "LargeStarTag")
         {
-            this.director.GetComponent<GameDirector>().GetLargeStar();
+            this.score += 20;
+            this.scoreText.GetComponent<Text>().text = "Score" + this.score;
+
         }
         if (other.gameObject.tag == "SmallCloudTag")
         {
-            this.director.GetComponent<GameDirector>().GetSmallCloud();
+            this.score += 30;
+            this.scoreText.GetComponent<Text>().text = "Score" + this.score;
+
         }
         if (other.gameObject.tag == "LargeCloudTag")
         {
-            this.director.GetComponent<GameDirector>().GetLargeCloud();
+            this.score += 40;
+            this.scoreText.GetComponent<Text>().text = "Score" + this.score;
+
         }
     }
 }
