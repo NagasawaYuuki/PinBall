@@ -36,19 +36,19 @@ public class BallController : MonoBehaviour
             this.scoreText.GetComponent<Text>().text = "Score" + this.score;
 
         }
-        if (other.gameObject.tag == "LargeStarTag")
+        else if(other.gameObject.tag == "LargeStarTag")
         {
             this.score += 20;
             this.scoreText.GetComponent<Text>().text = "Score" + this.score;
 
         }
-        if (other.gameObject.tag == "SmallCloudTag")
+        else if (other.gameObject.tag == "SmallCloudTag")
         {
             this.score += 30;
             this.scoreText.GetComponent<Text>().text = "Score" + this.score;
 
         }
-        if (other.gameObject.tag == "LargeCloudTag")
+        else if (other.gameObject.tag == "LargeCloudTag")
         {
             this.score += 40;
             this.scoreText.GetComponent<Text>().text = "Score" + this.score;
